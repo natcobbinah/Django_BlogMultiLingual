@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 # Create your models here.
 
@@ -26,10 +27,6 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    # returns a string with human readable representation of the object
-    def __str__(self):
-        return str(self.title)
-
     # Meta class defines metada for the model
     #
     # Ordering attribute sorts result by publication_date in descending order, with hypen
@@ -42,3 +39,13 @@ class Post(models.Model):
         indexes = [
             models.Index(fields=['-publication_date', 'title']),
         ]
+
+    # returns a string with human readable representation of the object
+    def __str__(self):
+        return str(self.title)
+
+    # get_absolute_url() returns the canonical URL for the object
+    # reverse() function builds the URL dynamically using the URL name defined
+    # in the URL patterns
+    def get_absolute_url(self):
+        return reverse('blog:post_detail', args=[self.id])

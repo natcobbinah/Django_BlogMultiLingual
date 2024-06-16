@@ -1,0 +1,17 @@
+{% extends "../../base.html" %}
+{% block title %}Add Post{% endblock %}
+{% if instance %}
+Editing post with title {{ instance.title }}
+{% else %}
+Creating new post
+{% endif %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">
+        {% if instance %} Edit Post {% else %} Create Post {% endif %}
+    </button>
+</form>
+{% endblock %}
