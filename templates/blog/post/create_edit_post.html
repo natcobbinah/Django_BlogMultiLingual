@@ -1,17 +1,25 @@
 {% extends "../../base.html" %}
-{% block title %}Add Post{% endblock %}
-{% if instance %}
-Editing post with title {{ instance.title }}
-{% else %}
-Creating new post
-{% endif %}
+{% load i18n %}
+{% block title %}{% trans "Create or Edit Post" %}{% endblock %}
 
 {% block content %}
+{% if instance %}
+{% blocktrans with instance_title=instance.title %}
+Editing post with title {{ instance_title }}
+{% endblocktrans %}
+{% else %}
+{% trans "Creating new post" %}
+{% endif %}
+
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">
-        {% if instance %} Edit Post {% else %} Create Post {% endif %}
+        {% if instance %}
+        {% trans "Edit Post" %}
+        {% else %}
+        {% trans "Create Post" %}
+        {% endif %}
     </button>
 </form>
 {% endblock %}

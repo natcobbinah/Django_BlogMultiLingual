@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 
@@ -10,8 +11,9 @@ class Post(models.Model):
     """
     Blog posts model
     """
-    title = models.CharField(max_length=250)
-    content = models.TextField()
+
+    title = models.CharField(_("title"), max_length=250)
+    content = models.TextField(_("content"))
     publication_date = models.DateTimeField(default=timezone.now)
 
     # model field arguments:
@@ -22,8 +24,9 @@ class Post(models.Model):
     #
     # related_name helps to specify the name of the reverse relationships from User to Post.
     # using (user.blog_posts) notation to access related objects
-    author = models.ForeignKey(User, on_delete=models.CASCADE,
-                               related_name='blog_posts')
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="blog_posts"
+    )
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -35,9 +38,9 @@ class Post(models.Model):
     # Index on (publication_date and title) will help improve performance for queries
     # filtering or ordering results by these fields
     class Meta:
-        ordering = ['-publication_date']
+        ordering = ["-publication_date"]
         indexes = [
-            models.Index(fields=['-publication_date', 'title']),
+            models.Index(fields=["-publication_date", "title"]),
         ]
 
     # returns a string with human readable representation of the object
@@ -48,4 +51,4 @@ class Post(models.Model):
     # reverse() function builds the URL dynamically using the URL name defined
     # in the URL patterns
     def get_absolute_url(self):
-        return reverse('blog:post_detail', args=[self.id])
+        return reverse("blog:post_detail", args=[self.id])

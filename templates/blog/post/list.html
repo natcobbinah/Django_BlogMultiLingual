@@ -1,17 +1,24 @@
 {% extends "../../base.html" %}
-{% block title %}My Blog{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "My Blog" %}{% endblock %}
 {% block content %}
-<h1>My Blog</h1>
+<h1>{% trans "My Blog" %}</h1>
 {% for post in posts%}
 <h2>
     <a href="{{ post.get_absolute_url }}">
-        {{post.title }}
+        {% blocktrans with title=post.title %}
+        {{title }}
+        {% endblocktrans %}
     </a>
 </h2>
 <p class="date">
-    Published {{ post.publication_date }} by {{ post.author }}
+    {% blocktrans with publication_date=post.publication_date author=post.author%}
+    Published {{ publication_date }} by {{ author }}
+    {% endblocktrans %}
 </p>
-{{ post.content|truncatewords:30|linebreaks }}
+{% blocktrans with user_post_content=post.content|truncatewords:30|linebreaks %}
+{{ user_post_content }}
+{% endblocktrans %}
 {% endfor %}
 {% include "../../pagination.html" with page=posts %}
 {% endblock %}

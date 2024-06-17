@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from environs import Env
+from django.utils.translation import gettext_lazy as _
 
 env = Env()
 # Read .env into os.environ
@@ -44,11 +45,17 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # local apps
     "main.apps.MainConfig",
+    # 3rd party apps
+    "rosetta",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    # LocaleMiddleWare below SessionMiddleWare  because it needs to use session data
+    # LocaleMiddleWare placed  before CommonMiddleWare because the latter needs an
+    # active language to resolve the requested middleware
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -87,9 +94,7 @@ WSGI_APPLICATION = "multilang_site.wsgi.application"
     }
 } """
 
-DATABASES = {
-    "default": env.dj_db_url("DATABASE_URL")
-}
+DATABASES = {"default": env.dj_db_url("DATABASE_URL")}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -113,7 +118,16 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "en"
+
+LANGUAGES = [
+    ("en", _("English")),
+    ("fr", _("French")),
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / "locale",
+]
 
 TIME_ZONE = "UTC"
 
@@ -130,9 +144,7 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_DIRS = [
-    BASE_DIR / "static"
-]
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
