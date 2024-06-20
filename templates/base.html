@@ -17,6 +17,9 @@
         </a> |
         <a href="{% url 'blog:post_list'%}">
             {% trans "View all posts" %}
+        </a> |
+        <a href="{% url 'chat:chatbot_room'%}">
+            {% trans "Chatbot" %}
         </a>
         {% get_current_language as LANGUAGE_CODE %}
         {% get_available_languages as LANGUAGES %}
@@ -48,6 +51,17 @@
         {% block content %}
         {% endblock %}
     </div>
+
+    {% block include_js %}
+    {% endblock %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            //DOM loaded
+            {% block domready %}
+            {% endblock %}
+        })
+    </script>
 
     <!-- <script src="{% static 'js/language_switcher.js' %}"></script> -->
 </body>

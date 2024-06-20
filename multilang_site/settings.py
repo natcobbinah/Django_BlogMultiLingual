@@ -37,6 +37,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # local apps
     "main.apps.MainConfig",
+    "chatbot.apps.ChatbotConfig",
     # 3rd party apps
     "rosetta",
 ]
@@ -81,8 +83,11 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "multilang_site.wsgi.application"
+# WSGI_APPLICATION = "multilang_site.wsgi.application"
 
+# using [Channels] to support both synchronous and asynchronous
+# communication in project
+ASGI_APPLICATION = "multilang_site.asgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
