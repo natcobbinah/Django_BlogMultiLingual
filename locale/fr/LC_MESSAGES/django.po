@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-17 16:36+0200\n"
-"PO-Revision-Date: 2024-06-17 16:35+0000\n"
+"POT-Creation-Date: 2024-06-21 23:42+0200\n"
+"PO-Revision-Date: 2024-06-21 23:43+0000\n"
 "Last-Translator:   <fmg3ckali@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,11 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: .\multilang_site\settings.py:124
+#: .\multilang_site\settings.py:129
 msgid "English"
 msgstr "Anglais"
 
-#: .\multilang_site\settings.py:125
+#: .\multilang_site\settings.py:130
 msgid "French"
 msgstr "Français"
 
@@ -35,9 +35,17 @@ msgstr "Créer un nouvel article"
 msgid "View all posts"
 msgstr "Voir tous les articles"
 
-#: .\templates\base.html:25
+#: .\templates\base.html:22
+msgid "Chatbot"
+msgstr "Chatbot"
+
+#: .\templates\base.html:27 .\templates\base.html:44
 msgid "Language"
 msgstr "Langue"
+
+#: .\templates\base.html:39 .\templates\search\search-results.html:8
+msgid "Search"
+msgstr "Recherche"
 
 #: .\templates\blog\post\create_edit_post.html:3
 msgid "Create or Edit Post"
@@ -133,6 +141,10 @@ msgstr ""
 "\n"
 "%(user_post_content)s\n"
 
+#: .\templates\chat\chatroom.html:3
+msgid "Chat room"
+msgstr "Salle de chat"
+
 #: .\templates\pagination.html:5
 msgid "Previous"
 msgstr "Précédent"
@@ -151,3 +163,30 @@ msgstr ""
 #: .\templates\pagination.html:13
 msgid "Next"
 msgstr "Suivant"
+
+#: .\templates\search\search-results.html:3
+msgid "Post search"
+msgstr "Recherche de poste"
+
+#: .\templates\search\search-results.html:5
+msgid "Search for Posts"
+msgstr "Recherche d'articles"
+
+#: .\templates\search\search-results.html:11
+msgid "Search results for"
+msgstr "Résultats de la recherche"
+
+#: .\templates\search\search-results.html:16
+#, python-format
+msgid ""
+"\n"
+"            %(title)s\n"
+"            "
+msgstr ""
+"\n"
+"%(title)s\n"
+"        "
+
+#: .\templates\search\search-results.html:22
+msgid "No search results found for"
+msgstr "Aucun résultat n'a été trouvé pour"

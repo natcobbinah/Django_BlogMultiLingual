@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-17 16:24+0200\n"
+"POT-Creation-Date: 2024-06-21 23:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\multilang_site\settings.py:124
+#: .\multilang_site\settings.py:129
 msgid "English"
 msgstr ""
 
-#: .\multilang_site\settings.py:125
+#: .\multilang_site\settings.py:130
 msgid "French"
 msgstr ""
 
@@ -34,8 +34,16 @@ msgstr ""
 msgid "View all posts"
 msgstr ""
 
-#: .\templates\base.html:25
+#: .\templates\base.html:22
+msgid "Chatbot"
+msgstr ""
+
+#: .\templates\base.html:27 .\templates\base.html:44
 msgid "Language"
+msgstr ""
+
+#: .\templates\base.html:39 .\templates\search\search-results.html:8
+msgid "Search"
 msgstr ""
 
 #: .\templates\blog\post\create_edit_post.html:3
@@ -115,6 +123,10 @@ msgid ""
 "%(user_post_content)s\n"
 msgstr ""
 
+#: .\templates\chat\chatroom.html:3
+msgid "Chat room"
+msgstr ""
+
 #: .\templates\pagination.html:5
 msgid "Previous"
 msgstr ""
@@ -129,4 +141,28 @@ msgstr ""
 
 #: .\templates\pagination.html:13
 msgid "Next"
+msgstr ""
+
+#: .\templates\search\search-results.html:3
+msgid "Post search"
+msgstr ""
+
+#: .\templates\search\search-results.html:5
+msgid "Search for Posts"
+msgstr ""
+
+#: .\templates\search\search-results.html:11
+msgid "Search results for"
+msgstr ""
+
+#: .\templates\search\search-results.html:16
+#, python-format
+msgid ""
+"\n"
+"            %(title)s\n"
+"            "
+msgstr ""
+
+#: .\templates\search\search-results.html:22
+msgid "No search results found for"
 msgstr ""

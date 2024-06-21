@@ -36,7 +36,7 @@
             <li>
                 <form action="{% url 'blog:search_post' %}">
                     <input type="search" placeholder="search" name="search" value="{{ search_text }}" minlength="3" />
-                    <button type="submit">Search</button>
+                    <button type="submit">{% trans "Search" %}</button>
                 </form>
             </li>
         </ul>

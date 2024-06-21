@@ -2,13 +2,13 @@
 {% load i18n %}
 {% block title %}{% trans "Post search" %}{% endblock %}
 {% block content %}
-<h2>Search for Posts</h2>
+<h2>{% trans "Search for Posts" %}</h2>
 <form>
     {{ form.as_p }}
-    <button type="submit">Search</button>
+    <button type="submit">{% trans "Search" %}</button>
 </form>
 {% if form.is_valid and search_text %}
-<h3>Search results for <em>{{ search_text }}</em></h3>
+<h3>{% trans "Search results for" %} <em>{{ search_text }}</em></h3>
 <ul>
     {% for post in posts %}
     <li>
@@ -19,7 +19,7 @@
         </a>
     </li>
     {% empty %}
-    No search results found for {{search_text}}
+    {% trans "No search results found for" %} {{search_text}}
     {% endfor %}
 </ul>
 {% endif %}
