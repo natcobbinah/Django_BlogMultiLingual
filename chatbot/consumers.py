@@ -1,5 +1,6 @@
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
+from . import chat_gpt
 
 
 class Chatconsumer(AsyncWebsocketConsumer):
@@ -15,4 +16,5 @@ class Chatconsumer(AsyncWebsocketConsumer):
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
         # send message to websocket
-        await self.send(text_data=json.dumps({'message': message}))
+        chat_gpt_response = chat_gpt.chat_completions(message)
+        await self.send(text_data=json.dumps({'message': chat_gpt_response}))
