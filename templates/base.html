@@ -24,8 +24,8 @@
         {% get_current_language as LANGUAGE_CODE %}
         {% get_available_languages as LANGUAGES %}
         {% get_language_info_list for LANGUAGES as languages %}
+        <p>{% trans "Language" %} :</p>
         <ul class="languages">
-            <p>{% trans "Language" %} :</p>
             {% for language in languages %}
             <li>
                 <a href="/{{ language.code }}/" {% if language.code is LANGUAGE_CODE %} class="selected" {% endif %}>
@@ -33,6 +33,12 @@
                 </a>
             </li>
             {% endfor %}
+            <li>
+                <form action="{% url 'blog:search_post' %}">
+                    <input type="search" placeholder="search" name="search" value="{{ search_text }}" minlength="3" />
+                    <button type="submit">Search</button>
+                </form>
+            </li>
         </ul>
         <!-- <div class="languages">
             <label for="language-select">{% trans "Language" %}</label>

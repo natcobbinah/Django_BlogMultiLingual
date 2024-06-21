@@ -1,0 +1,26 @@
+{% extends "../base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Post search" %}{% endblock %}
+{% block content %}
+<h2>Search for Posts</h2>
+<form>
+    {{ form.as_p }}
+    <button type="submit">Search</button>
+</form>
+{% if form.is_valid and search_text %}
+<h3>Search results for <em>{{ search_text }}</em></h3>
+<ul>
+    {% for post in posts %}
+    <li>
+        <span>Title: </span><a href="{{ post.get_absolute_url }}">
+            {% blocktrans with title=post.title %}
+            {{title }}
+            {% endblocktrans %}
+        </a>
+    </li>
+    {% empty %}
+    No search results found for {{search_text}}
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

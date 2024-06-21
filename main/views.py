@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Post
-from .forms import PostForm
+from .forms import PostForm, SearchForm
 
 # Create your views here.
 
@@ -47,5 +47,29 @@ def post_edit(request, pk=None):
     form = PostForm(instance=post)
 
     return render(
-        request, "blog/post/create_edit_post.html", {"form": form, "instance": post}
+        request, "blog/post/create_edit_post.html", {
+            "form": form, "instance": post}
     )
+
+
+def search_post(request):
+    search_text = request.GET.get("search", "")
+    form = SearchForm(request.GET)
+    posts = set()
+
+    if form.is_valid() and form.cleaned_data["search"]:
+        search = form.cleaned_data["search"]
+        search_by = form.cleaned_data.get("search_by") or "title"
+        if search_by == "title":
+            posts = Post.objects.filter(title__icontains=search)
+        else:
+            posts = Post.objects.filter(content__icontains=search)
+    else:
+        form = SearchForm()
+
+    return render(request,
+                  "search/search-results.html", {
+                      "form": form,
+                      "search_text": search_text,
+                      "posts": posts
+                  })
