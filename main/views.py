@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from PIL import Image
+from io import BytesIO
+from django.core.files.images import ImageFile
 from .models import Post
 from .forms import PostForm, SearchForm
 
@@ -36,11 +39,20 @@ def post_edit(request, pk=None):
         post = None
 
     if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
+        form = PostForm(request.POST, request.FILES, instance=post)
 
         if form.is_valid():
             new_post = form.save(commit=False)
             new_post.author = request.user
+
+            post_image = form.cleaned_data.get("post_image")
+            if post_image and not hasattr(post_image, "path"):
+                image = Image.open(post_image)
+                image.thumbnail((500, 500))
+                image_data = BytesIO()
+                image.save(fp=image_data, format=post_image.image.format)
+                image_file = ImageFile(image_data)
+                new_post.post_image.save(post_image.name, image_file)
             new_post.save()
 
             return redirect("blog:post_list")
@@ -48,7 +60,9 @@ def post_edit(request, pk=None):
 
     return render(
         request, "blog/post/create_edit_post.html", {
-            "form": form, "instance": post}
+            "form": form,
+            "instance": post,
+            "is_file_upload": True}
     )
 
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-21 23:32+0200\n"
+"POT-Creation-Date: 2024-06-23 21:14+0200\n"
 "PO-Revision-Date: 2024-06-17 10:53+0000\n"
 "Last-Translator:   <fmg3ckali@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,6 +26,10 @@ msgstr "titre"
 #: .\main\models.py:16
 msgid "content"
 msgstr "contenu"
+
+#: .\main\models.py:32
+msgid "photo"
+msgstr ""
 
 #: .\main\urls.py:9
 msgid "post/new/"

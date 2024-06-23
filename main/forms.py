@@ -10,7 +10,7 @@ SEARCH_BY_CHOICES = (
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ["title", "content"]
+        fields = ["title", "content", "post_image"]
 
 
 class SearchForm(forms.Form):

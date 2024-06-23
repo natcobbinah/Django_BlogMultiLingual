@@ -29,8 +29,10 @@ class Post(models.Model):
     )
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    post_image = models.ImageField(_("photo"),
+                                   upload_to="post_images/", blank=True, null=True)
 
-    # Meta class defines metada for the model
+    # Meta class defines metadata for the model
     #
     # Ordering attribute sorts result by publication_date in descending order, with hypen
     # before field name

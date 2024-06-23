@@ -17,6 +17,9 @@
     Published {{ publication_date }} by {{ author }}
     {% endblocktrans %}
 </p>
+{% if post.post_image %}
+<img src="{{ post.post_image.url }}" />
+{% endif %}
 <p>
     {% blocktrans with user_post_content_detail=post.content|linebreaks %}
     {{ user_post_content_detail }}
