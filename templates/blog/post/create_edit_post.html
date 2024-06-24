@@ -1,5 +1,6 @@
 {% extends "../../base.html" %}
 {% load i18n %}
+{% load crispy_forms_tags %}
 {% block title %}{% trans "Create or Edit Post" %}{% endblock %}
 
 {% block content %}
@@ -13,7 +14,7 @@ Editing post with title {{ instance_title }}
 
 <form method="post" {% if is_file_upload %}enctype="multipart/form-data" {% endif %}>
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form|crispy }}
     <button type="submit">
         {% if instance %}
         {% trans "Edit Post" %}

@@ -1,17 +1,24 @@
 {% load i18n %}
-<div class="pagination">
-    <span class="step-links">
-        {% if page.has_previous %}
-        <a href="?page={{ page.previous_page_number }}">{% trans "Previous" %}</a>
-        {% endif %}
-        <span class="current">
-            {% blocktrans with page_number=page.number total_pages=page.paginator.num_pages %}
-            Page {{ page_number }} of {{ total_pages }}
-            {% endblocktrans %}
-        </span>
-        {% if page.has_next %}
-        <a href="?page={{ page.next_page_number }}">{% trans "Next" %}</a>
-        {% endif %}
-    </span>
+<nav aria-label="Page navigation" class="my-3">
+    <ul class="pagination pagination-lg justify-content-center">
+        <li class="page-item">
+            {% if page.has_previous %}
+            <a class="page-link" href="?page={{ page.previous_page_number }}">
+                {% trans "Previous" %}
+            </a>
+            {% endif %}
+        </li>
 
-</div>
+        <li class="page-item">
+            {% blocktrans with page_number=page.number total_pages=page.paginator.num_pages %}
+            <a class="page-link">Page {{ page_number }} of {{ total_pages }}</a>
+            {% endblocktrans %}
+        </li>
+
+        <li class="page-item">
+            {% if page.has_next %}
+            <a class="page-link" href="?page={{ page.next_page_number }}">{% trans "Next" %}</a>
+            {% endif %}
+        </li>
+    </ul>
+</nav>

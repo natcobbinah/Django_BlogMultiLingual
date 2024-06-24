@@ -1,24 +1,46 @@
 {% extends "../../base.html" %}
 {% load i18n %}
-{% block title %}{% trans "My Blog" %}{% endblock %}
+{% load static %}
+{% block title %}{% trans "Blog post articles" %}{% endblock %}
 {% block content %}
-<h1>{% trans "My Blog" %}</h1>
-{% for post in posts%}
-<h2>
-    <a href="{{ post.get_absolute_url }}">
-        {% blocktrans with title=post.title %}
-        {{title }}
-        {% endblocktrans %}
-    </a>
-</h2>
-<p class="date">
-    {% blocktrans with publication_date=post.publication_date author=post.author%}
-    Published {{ publication_date }} by {{ author }}
-    {% endblocktrans %}
-</p>
-{% blocktrans with user_post_content=post.content|truncatewords:30|linebreaks %}
-{{ user_post_content }}
-{% endblocktrans %}
-{% endfor %}
+
+<div class="container">
+    <div class="row gy-5">
+        {% for post in posts %}
+        <div class="col-4 justify-content-around">
+            <div class="card h-100" style="width: 18rem;">
+                <img src="{% if post.post_image %}{{ post.post_image.url }}{% else %}{% static 'images/no_image.png' %}{% endif %}"
+                    class="card-img-top" alt="no image for post" style="height: 12rem;" />
+
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {% blocktrans with title=post.title %}
+                        {{title }}
+                        {% endblocktrans %}
+                    </h5>
+
+                    <p class="card-text">
+                        {% blocktrans with user_post_content=post.content|truncatewords:30|linebreaks %}
+                        {{ user_post_content }}
+                        {% endblocktrans %}
+                    </p>
+
+                    <a href="{{ post.get_absolute_url }}" class="btn btn-primary mb-2 text-center">
+                        {% trans "Read full article" %}
+                    </a>
+                </div>
+
+                <div class="card-footer text-muted">
+                    {% blocktrans with publication_date=post.publication_date author=post.author%}
+                    Published {{ publication_date }} by {{ author }}
+                    {% endblocktrans %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
 {% include "../../pagination.html" with page=posts %}
 {% endblock %}
