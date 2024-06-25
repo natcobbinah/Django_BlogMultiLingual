@@ -50,3 +50,14 @@
     padding-left: 0;
     padding-right: 0;
 }
+
+.chatbot-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    user-select: none;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}

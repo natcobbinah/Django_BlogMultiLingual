@@ -1,29 +1,53 @@
 {% extends "../../base.html" %}
 {% load i18n %}
+{% load static %}
 {% block title %}
 {% blocktrans with title=post.title %}
 {{ title }}
 {% endblocktrans %}
 {% endblock %}
 
+{% for message in request.sesssion.messages %}
+{% include "../../alert_toast.html" with message=message %}
+{% endfor %}
+
 {% block content %}
-<h1>
-    {% blocktrans with title=post.title %}
-    {{ title }}
-    {% endblocktrans %}
-</h1>
-<p class="date">
-    {% blocktrans with publication_date=post.publication_date author=post.author %}
-    Published {{ publication_date }} by {{ author }}
-    {% endblocktrans %}
-</p>
-{% if post.post_image %}
-<img src="{{ post.post_image.url }}" />
-{% endif %}
-<p>
-    {% blocktrans with user_post_content_detail=post.content|linebreaks %}
-    {{ user_post_content_detail }}
-    {% endblocktrans %}
-</p>
-<a href="{% url 'blog:post_update' post.pk %}">{% trans "Edit" %}</a>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <h1>
+                {% blocktrans with title=post.title %}
+                {{ title }}
+                {% endblocktrans %}
+            </h1>
+            <p class="date">
+                {% blocktrans with publication_date=post.publication_date author=post.author %}
+                Published {{ publication_date }} by {{ author }}
+                {% endblocktrans %}
+            </p>
+            <img src="{% if post.post_image %}{{ post.post_image.url }}{% else %}{% static 'images/no_image.png' %}{% endif %}"
+                style="width:50rem;height:25rem;" />
+            <p>
+                {% blocktrans with user_post_content_detail=post.content|linebreaks %}
+                {{ user_post_content_detail }}
+                {% endblocktrans %}
+            </p>
+            <a class="btn btn-primary mb-3" href="{% url 'blog:post_update' post.pk %}" role="button">
+                {% trans "Edit"%}
+            </a>
+        </div>
+        <div class="col-md-3">
+            <h4>Recent posts</h4>
+            {% for post in latest_posts %}
+            <ul>
+                <li>
+                    <a href="{{ post.get_absolute_url }}">
+                        {{post.title}}
+                    </a>
+                </li>
+            </ul>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}

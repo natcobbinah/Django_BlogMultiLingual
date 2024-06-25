@@ -1,0 +1,8 @@
+{% load i18n %}
+<div class="alert alert-{%if message.level_tag == 'error'%}danger{% else %}{{message.level_tag}}{% endif %} alert-dismissible"
+    role="alert">
+    <h4 class="alert-heading">{{message.level_tag|title}}</h4>
+    <hr />
+    <div>{{message}}</div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>

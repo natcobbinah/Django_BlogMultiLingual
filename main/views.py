@@ -3,6 +3,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from PIL import Image
 from io import BytesIO
 from django.core.files.images import ImageFile
+from django.contrib import messages
+from django.utils import timezone
 from .models import Post
 from .forms import PostForm, SearchForm
 
@@ -13,7 +15,7 @@ def post_list(request):
     post_list = Post.objects.all()
 
     # paginator with 10 posts per page
-    paginator = Paginator(post_list, 4)
+    paginator = Paginator(post_list, 6)
     page_number = request.GET.get("page", 1)
     try:
         posts = paginator.page(page_number)
@@ -29,7 +31,12 @@ def post_list(request):
 
 def post_detail(request, id):
     post = get_object_or_404(Post, id=id)
-    return render(request, "blog/post/detail.html", {"post": post})
+    latest_posts = Post.objects.order_by(
+        "-publication_date").exclude(id=post.id)[:5]
+    return render(request, "blog/post/detail.html",
+                  {"post": post,
+                   "latest_posts": latest_posts,
+                   })
 
 
 def post_edit(request, pk=None):
@@ -42,8 +49,10 @@ def post_edit(request, pk=None):
         form = PostForm(request.POST, request.FILES, instance=post)
 
         if form.is_valid():
-            new_post = form.save(commit=False)
-            new_post.author = request.user
+            updated_post = form.save(commit=False)
+            updated_post.author = request.user
+            updated_post.content = form.cleaned_data["content"]
+            updated_post.updated = timezone.now()
 
             post_image = form.cleaned_data.get("post_image")
             if post_image and not hasattr(post_image, "path"):
@@ -52,10 +61,17 @@ def post_edit(request, pk=None):
                 image_data = BytesIO()
                 image.save(fp=image_data, format=post_image.image.format)
                 image_file = ImageFile(image_data)
-                new_post.post_image.save(post_image.name, image_file)
-            new_post.save()
+                updated_post.post_image.save(post_image.name, image_file)
+            updated_post.save()
 
-            return redirect("blog:post_list")
+            if post is None:
+                messages.success(request,
+                                 f"Post {updated_post} created successfully")
+            else:
+                messages.success(request,
+                                 f"Post {updated_post} updated successfully")
+
+            return redirect("blog:post_detail", updated_post.pk)
     form = PostForm(instance=post)
 
     return render(

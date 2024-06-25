@@ -3,25 +3,29 @@
 {% load crispy_forms_tags %}
 {% block title %}{% trans "Post search" %}{% endblock %}
 {% block content %}
-<h2>{% trans "Search for Posts" %}</h2>
-<form>
-    {{ form|crispy }}
-    <button type="submit">{% trans "Search" %}</button>
-</form>
-{% if form.is_valid and search_text %}
-<h3>{% trans "Search results for" %} <em>{{ search_text }}</em></h3>
-<ul>
-    {% for post in posts %}
-    <li>
-        <span>Title: </span><a href="{{ post.get_absolute_url }}">
-            {% blocktrans with title=post.title %}
-            {{title }}
-            {% endblocktrans %}
-        </a>
-    </li>
-    {% empty %}
-    {% trans "No search results found for" %} {{search_text}}
-    {% endfor %}
-</ul>
-{% endif %}
-{% endblock %}
+
+<div class="container">
+    <h2 class="text-center">{% trans "Search for Posts" %}</h2>
+    <form>
+        {{ form|crispy }}
+        <button class="btn btn-primary mb-3" type="submit">{% trans "Search" %}</button>
+    </form>
+    {% if form.is_valid and search_text %}
+    <h3>{% trans "Search results for" %} <em>{{ search_text }}</em></h3>
+
+    <ul class="list-group list-group-flush">
+        {% for post in posts %}
+        <li class="list-group-item">
+            <a href="{{ post.get_absolute_url }}">
+                {% blocktrans with title=post.title %}
+                {{title }}
+                {% endblocktrans %}
+            </a>
+        </li>
+        {% empty %}
+        {% trans "No search results found for" %} {{search_text}}
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endblock %}
+</div>
