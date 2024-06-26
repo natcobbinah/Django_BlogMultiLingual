@@ -28,6 +28,10 @@ Read post
 Edit read post
 ![edit read post](https://github.com/natcobbinah/Django_BlogMultiLingual/assets/10479361/c8eafc7f-5711-4212-a58a-f44074fa5c72)
 
+![edit read post](https://github.com/natcobbinah/Django_BlogMultiLingual/assets/10479361/3ccd5c0f-28e5-42c8-8f01-f733793538e6)
+
+
+
 Searching
 Search by post title
 ![search for post by title](https://github.com/natcobbinah/Django_BlogMultiLingual/assets/10479361/014dc766-fcee-493b-a719-bae3c947c93b)
