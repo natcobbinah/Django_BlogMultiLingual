@@ -10,6 +10,16 @@ A simple django blog site with multilingual features and a chatbot using LLM for
 >   Search functionality for posts using its attributes
 ```
 
+## Running app locally
+```
+1. Clone app from github
+2. cd to app directory and activate the python  virtual environment (.venv)
+   .venv/Scripts/activate (on windows)
+3. pip install -r requirements.txt
+4. python manage.py runserver
+5. Navigate and test app features
+```
+
 ## Sample Screenshots from App
 Homepage (en)
 ![blog site homepage 1](https://github.com/natcobbinah/Django_BlogMultiLingual/assets/10479361/067530e2-506d-413f-b77d-8fddda4e6dd5)
