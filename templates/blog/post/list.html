@@ -4,6 +4,10 @@
 {% block title %}{% trans "Blog post articles" %}{% endblock %}
 {% block content %}
 
+{% for message in messages %}
+{% include "../../alert_toast.html" with message=message %}
+{% endfor %}
+
 <div class="container">
     <div class="row gy-5">
         {% for post in posts %}

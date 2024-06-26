@@ -7,11 +7,11 @@
 {% endblocktrans %}
 {% endblock %}
 
-{% for message in request.sesssion.messages %}
+{% block content %}
+{% for message in messages %}
 {% include "../../alert_toast.html" with message=message %}
 {% endfor %}
 
-{% block content %}
 <div class="container">
     <div class="row">
         <div class="col-md-9">
@@ -34,6 +34,9 @@
             </p>
             <a class="btn btn-primary mb-3" href="{% url 'blog:post_update' post.pk %}" role="button">
                 {% trans "Edit"%}
+            </a>
+            <a class="btn btn-primary mb-3" href="{% url 'blog:post_delete' post.pk %}" role="button">
+                {% trans "Delete"%}
             </a>
         </div>
         <div class="col-md-3">

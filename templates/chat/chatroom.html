@@ -11,6 +11,10 @@
 </div>
 {% endblock %}
 
+<!--the code is rendered as <script id="request-user" type="application/json">username</script>
+this value can then be retrieved in the domready block by parsing the content with
+id="request-user" using JSON.parse(). This is a safeway to use Python objects in javascript
+-->
 {% block include_js %}
 {{ request.user.username|json_script:"request-user" }}
 {% endblock %}

@@ -39,6 +39,18 @@ def post_detail(request, id):
                    })
 
 
+def post_delete(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if post:
+        post.delete()
+        messages.success(request,
+                         f"Post {post} deleted successfully")
+    else:
+        messages.success(request,
+                         f"No Post with id {post.pk} found")
+    return redirect("blog:post_list")
+
+
 def post_edit(request, pk=None):
     if pk is not None:
         post = get_object_or_404(Post, pk=pk)

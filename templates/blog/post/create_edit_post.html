@@ -3,14 +3,12 @@
 {% load crispy_forms_tags %}
 {% block title %}{% trans "Create or Edit Post" %}{% endblock %}
 
-{% for message in request.session.messages %}
-<div class="alert alert-{% if message.level_tag == 'error' %}danger{% else %}{{message.level_tag}}{% endif %}"
-    role="alert">
-    {{ message }}
-</div>
+{% block content %}
+{% for message in messages %}
+{% include "../../alert_toast.html" with message=message %}
 {% endfor %}
 
-{% block content %}
+
 {% if instance %}
 {% blocktrans with instance_title=instance.title %}
 <h3 class="text-center">Edit post with title {{ instance_title }}</h3>
