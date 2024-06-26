@@ -2,13 +2,12 @@
 {% load i18n %}
 {% block title %}{% trans "Chat room" %}{% endblock %}
 {% block content %}
-<div id="container-chatbot">
-    <div id="chat"></div>
-    <div class="chat-input d-grid gap-3">
-        <input id="chat-message-input my-5" type="text" class="form-control" placeholder="your message to bot"
-            aria-label="your message to bot" aria-describedby="addon-wrapping">
-        <button id="chat-message-submit" type="submit" class="btn btn-primary">Send</button>
-    </div>
+
+<div class="chatpane"></div>
+<div class="chat-input d-grid gap-3 position-absolute" style="width: 98%; top: 30rem;">
+    <input id="chat-message-input" type="text" class="form-control" placeholder="your message to bot"
+        aria-label="your message to bot" aria-describedby="addon-wrapping">
+    <button id="chat-message-submit" type="submit" class="btn btn-primary">Send</button>
 </div>
 {% endblock %}
 
@@ -26,9 +25,9 @@ const chatSocket = new WebSocket(url)
 
 chatSocket.onmessage = (event) => {
 const data = JSON.parse(event.data)
-const chat = document.querySelector("#chat")
-const source = requestUser ? 'me' : 'other'
-const name = requestUser ? 'Me' : 'GPT-bot'
+const chat = document.querySelector(".chatpane")
+const source = 'other'
+const name = 'GPT-bot'
 
 chat.innerHTML += '<div class="message ' + source + '">' +
     '<strong>' + name + '</strong><br>' +
@@ -46,7 +45,19 @@ const submitButton = document.getElementById('chat-message-submit')
 
 submitButton.addEventListener('click', (event) => {
 const message = input.value
+console.log("clicked")
+
 if(message){
+const chat = document.querySelector(".chatpane")
+const source = 'me'
+const name = 'Me'
+
+chat.innerHTML += '<div class="message ' + source + '">' +
+    '<strong>' + name + '</strong><br>' +
+    message + '</div>';
+chat.scrollTop = chat.scrollHeight;
+
+
 //send message in JSON format
 chatSocket.send(JSON.stringify({
 'message': message
@@ -59,14 +70,18 @@ input.focus();
 }
 })
 
+if (input){
 input.addEventListener('keypress', (event) => {
 if(event.key === 'Enter'){
 //cancel the default action, if needed
 event.preventDefault();
 //trigger click event on button
+console.log("input field clicked on enter")
 submitButton.click();
 }
 });
-
 input.focus();
+}
+
+
 {% endblock %}

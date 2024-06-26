@@ -17,4 +17,5 @@ class Chatconsumer(AsyncWebsocketConsumer):
         message = text_data_json['message']
         # send message to websocket
         chat_gpt_response = chat_gpt.chat_completions(message)
+        #print(chat_gpt_response)
         await self.send(text_data=json.dumps({'message': chat_gpt_response}))

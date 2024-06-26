@@ -19,29 +19,22 @@
 .container-bot {
     display: flex;
     justify-content: flex-end;
+    position: sticky;
+    top: 50px;
 }
 
-.container-chatbot {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    user-select: none;
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-}
-
-#chat {
-    top: 64px;
+.chatpane {
+    top: 5rem;
     bottom: 0;
-    /*  position: fixed; */
-    width: 100%;
+    position: fixed;
+    border: solid;
     overflow-y: scroll;
-    /*  padding-bottom: 150px; */
+    padding: 1rem;
+    margin-bottom: 10rem;
+    width: 98%;
 }
 
-#chat .message {
+.chatpane .message {
     background: #efefef;
     padding: 10px 20px;
     border-radius: 4px;
@@ -53,9 +46,16 @@
     clear: both;
 }
 
-#chat .message.me {
+.chatpane .message.me {
     display: inline;
     float: right;
+    background: #DCEDE0;
+    color: #56A668;
+}
+
+.chatpane .message.other {
+    display: inline;
+    float: left;
     background: #DCEDE0;
     color: #56A668;
 }
