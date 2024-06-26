@@ -28,9 +28,7 @@ Read post
 Edit read post
 ![edit read post](https://github.com/natcobbinah/Django_BlogMultiLingual/assets/10479361/c8eafc7f-5711-4212-a58a-f44074fa5c72)
 
-![edit read post](https://github.com/natcobbinah/Django_BlogMultiLingual/assets/10479361/3ccd5c0f-28e5-42c8-8f01-f733793538e6)
-
-
+![alert toast](https://github.com/natcobbinah/Django_BlogMultiLingual/assets/10479361/4fd605a7-41d2-4a49-a2c3-c8e549d8e46b)
 
 Searching
 Search by post title
