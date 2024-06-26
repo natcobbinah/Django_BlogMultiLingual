@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-23 21:11+0200\n"
-"PO-Revision-Date: 2024-06-23 21:15+0000\n"
+"POT-Creation-Date: 2024-06-26 01:59+0200\n"
+"PO-Revision-Date: 2024-06-26 02:02+0000\n"
 "Last-Translator:   <fmg3ckali@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,60 +19,64 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: .\multilang_site\settings.py:129
+#: .\multilang_site\settings.py:132
 msgid "English"
 msgstr "Anglais"
 
-#: .\multilang_site\settings.py:130
+#: .\multilang_site\settings.py:133
 msgid "French"
 msgstr "Français"
 
-#: .\templates\base.html:16
-msgid "Create new post"
-msgstr "Créer un nouvel article"
+#: .\templates\base.html:29
+msgid "My Blog"
+msgstr "Mon blog"
 
-#: .\templates\base.html:19
+#: .\templates\base.html:39
 msgid "View all posts"
 msgstr "Voir tous les articles"
 
-#: .\templates\base.html:22
-msgid "Chatbot"
-msgstr "Chatbot"
+#: .\templates\base.html:43
+msgid "Create new post"
+msgstr "Créer un nouvel article"
 
-#: .\templates\base.html:27 .\templates\base.html:44
-msgid "Language"
-msgstr "Langue"
-
-#: .\templates\base.html:39 .\templates\search\search-results.html:8
+#: .\templates\base.html:52 .\templates\search\search-results.html:11
 msgid "Search"
 msgstr "Recherche"
 
-#: .\templates\blog\post\create_edit_post.html:3
+#: .\templates\base.html:59
+msgid "Language"
+msgstr "Langue"
+
+#: .\templates\blog\post\create_edit_post.html:4
 msgid "Create or Edit Post"
 msgstr "Créer ou modifier un article"
 
-#: .\templates\blog\post\create_edit_post.html:7
+#: .\templates\blog\post\create_edit_post.html:15
 #, python-format
+#| msgid ""
+#| "\n"
+#| "Editing post with title %(instance_title)s\n"
 msgid ""
 "\n"
-"Editing post with title %(instance_title)s\n"
+"<h3 class=\"text-center\">Edit post with title %(instance_title)s</h3>\n"
 msgstr ""
 "\n"
 "Modification d'un article avec titre %(instance_title)s\n"
 
-#: .\templates\blog\post\create_edit_post.html:11
-msgid "Creating new post"
-msgstr "Création d'un nouveau poste"
-
 #: .\templates\blog\post\create_edit_post.html:19
+#| msgid "Create Post"
+msgid "Create post"
+msgstr "Créer un poste"
+
+#: .\templates\blog\post\create_edit_post.html:28
 msgid "Edit Post"
 msgstr "Modifier le poste"
 
-#: .\templates\blog\post\create_edit_post.html:21
+#: .\templates\blog\post\create_edit_post.html:30
 msgid "Create Post"
 msgstr "Créer un poste"
 
-#: .\templates\blog\post\detail.html:4
+#: .\templates\blog\post\detail.html:5
 #, python-format
 msgid ""
 "\n"
@@ -81,112 +85,200 @@ msgstr ""
 "\n"
 "%(title)s\n"
 
-#: .\templates\blog\post\detail.html:11
+#: .\templates\blog\post\detail.html:19
+#: .\templates\search\search-results.html:20
 #, python-format
+#| msgid ""
+#| "\n"
+#| "            %(title)s\n"
+#| "            "
 msgid ""
 "\n"
-"    %(title)s\n"
-"    "
+"                %(title)s\n"
+"                "
 msgstr ""
 "\n"
 "%(title)s\n"
-"    "
+"        "
 
-#: .\templates\blog\post\detail.html:16 .\templates\blog\post\list.html:15
+#: .\templates\blog\post\detail.html:24
 #, python-format
+#| msgid ""
+#| "\n"
+#| "    Published %(publication_date)s by %(author)s\n"
+#| "    "
 msgid ""
 "\n"
-"    Published %(publication_date)s by %(author)s\n"
-"    "
+"                Published %(publication_date)s by %(author)s\n"
+"                "
 msgstr ""
 "\n"
 "Publié %(publication_date)s par %(author)s\n"
 "    "
 
-#: .\templates\blog\post\detail.html:24
+#: .\templates\blog\post\detail.html:31
 #, python-format
+#| msgid ""
+#| "\n"
+#| "    %(user_post_content_detail)s\n"
+#| "    "
 msgid ""
 "\n"
-"    %(user_post_content_detail)s\n"
-"    "
+"                %(user_post_content_detail)s\n"
+"                "
 msgstr ""
 "\n"
 "%(user_post_content_detail)s"
 
-#: .\templates\blog\post\detail.html:28
+#: .\templates\blog\post\detail.html:36
 msgid "Edit"
 msgstr "Modifier"
 
-#: .\templates\blog\post\list.html:3 .\templates\blog\post\list.html:5
-msgid "My Blog"
-msgstr "Mon blog"
+#: .\templates\blog\post\detail.html:40
+msgid "Recent posts"
+msgstr "Publications récentes"
 
-#: .\templates\blog\post\list.html:9
+#: .\templates\blog\post\detail.html:45
 #, python-format
+#| msgid ""
+#| "\n"
+#| "            %(title)s\n"
+#| "            "
 msgid ""
 "\n"
-"        %(title)s\n"
-"        "
+"                        %(post_title)s\n"
+"                        "
 msgstr ""
 "\n"
 "%(title)s\n"
 "        "
 
-#: .\templates\blog\post\list.html:19
+#: .\templates\blog\post\list.html:4
+msgid "Blog post articles"
+msgstr "Articles de blog"
+
+#: .\templates\blog\post\list.html:17
 #, python-format
+#| msgid ""
+#| "\n"
+#| "            %(title)s\n"
+#| "            "
 msgid ""
 "\n"
-"%(user_post_content)s\n"
+"                        %(title)s\n"
+"                        "
 msgstr ""
 "\n"
-"%(user_post_content)s\n"
+"%(title)s\n"
+"        "
+
+#: .\templates\blog\post\list.html:23
+#, python-format
+#| msgid ""
+#| "\n"
+#| "            %(title)s\n"
+#| "            "
+msgid ""
+"\n"
+"                        %(user_post_content)s\n"
+"                        "
+msgstr ""
+"\n"
+"%(title)s\n"
+"        "
+
+#: .\templates\blog\post\list.html:29
+msgid "Read full article"
+msgstr "Lire l'article"
+
+#: .\templates\blog\post\list.html:34
+#, python-format
+#| msgid ""
+#| "\n"
+#| "    Published %(publication_date)s by %(author)s\n"
+#| "    "
+msgid ""
+"\n"
+"                    Published %(publication_date)s by %(author)s\n"
+"                    "
+msgstr ""
+"\n"
+"Publié %(publication_date)s par %(author)s\n"
+"    "
 
 #: .\templates\chat\chatroom.html:3
 msgid "Chat room"
 msgstr "Salle de chat"
 
-#: .\templates\pagination.html:5
+#: .\templates\pagination.html:7
 msgid "Previous"
 msgstr "Précédent"
 
-#: .\templates\pagination.html:8
+#: .\templates\pagination.html:13
 #, python-format
+#| msgid ""
+#| "\n"
+#| "            Page %(page_number)s of %(total_pages)s\n"
+#| "            "
 msgid ""
 "\n"
-"            Page %(page_number)s of %(total_pages)s\n"
+"            <a class=\"page-link\">Page %(page_number)s of %(total_pages)s</a>\n"
 "            "
 msgstr ""
 "\n"
 "Page %(page_number)s de %(total_pages)s\n"
 "            "
 
-#: .\templates\pagination.html:13
+#: .\templates\pagination.html:20
 msgid "Next"
 msgstr "Suivant"
 
-#: .\templates\search\search-results.html:3
+#: .\templates\search\search-results.html:4
 msgid "Post search"
 msgstr "Recherche de poste"
 
-#: .\templates\search\search-results.html:5
+#: .\templates\search\search-results.html:8
 msgid "Search for Posts"
 msgstr "Recherche d'articles"
 
-#: .\templates\search\search-results.html:11
+#: .\templates\search\search-results.html:14
 msgid "Search results for"
 msgstr "Résultats de la recherche"
 
-#: .\templates\search\search-results.html:16
-#, python-format
-msgid ""
-"\n"
-"            %(title)s\n"
-"            "
-msgstr ""
-"\n"
-"%(title)s\n"
-"        "
-
-#: .\templates\search\search-results.html:22
+#: .\templates\search\search-results.html:26
 msgid "No search results found for"
 msgstr "Aucun résultat n'a été trouvé pour"
+
+#~ msgid "Chatbot"
+#~ msgstr "Chatbot"
+
+#~ msgid "Creating new post"
+#~ msgstr "Création d'un nouveau poste"
+
+#, python-format
+#~ msgid ""
+#~ "\n"
+#~ "    %(title)s\n"
+#~ "    "
+#~ msgstr ""
+#~ "\n"
+#~ "%(title)s\n"
+#~ "    "
+
+#, python-format
+#~ msgid ""
+#~ "\n"
+#~ "        %(title)s\n"
+#~ "        "
+#~ msgstr ""
+#~ "\n"
+#~ "%(title)s\n"
+#~ "        "
+
+#, python-format
+#~ msgid ""
+#~ "\n"
+#~ "%(user_post_content)s\n"
+#~ msgstr ""
+#~ "\n"
+#~ "%(user_post_content)s\n"

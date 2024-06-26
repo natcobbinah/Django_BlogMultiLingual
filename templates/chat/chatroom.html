@@ -2,10 +2,13 @@
 {% load i18n %}
 {% block title %}{% trans "Chat room" %}{% endblock %}
 {% block content %}
-<div id="chat"></div>
-<div id="chat-input">
-    <input id="chat-message-input" type="text" />
-    <input id="chat-message-submit" type="submit" value="Send" />
+<div id="container-chatbot">
+    <div id="chat"></div>
+    <div class="chat-input d-grid gap-3">
+        <input id="chat-message-input my-5" type="text" class="form-control" placeholder="your message to bot"
+            aria-label="your message to bot" aria-describedby="addon-wrapping">
+        <button id="chat-message-submit" type="submit" class="btn btn-primary">Send</button>
+    </div>
 </div>
 {% endblock %}
 
@@ -23,7 +26,7 @@ const chatSocket = new WebSocket(url)
 
 chatSocket.onmessage = (event) => {
 const data = JSON.parse(event.data)
-const chat = document.getElementById('chat')
+const chat = document.querySelector("#chat")
 const source = requestUser ? 'me' : 'other'
 const name = requestUser ? 'Me' : 'GPT-bot'
 

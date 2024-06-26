@@ -37,12 +37,14 @@
             </a>
         </div>
         <div class="col-md-3">
-            <h4>Recent posts</h4>
+            <h4>{% trans "Recent posts" %}</h4>
             {% for post in latest_posts %}
             <ul>
                 <li>
                     <a href="{{ post.get_absolute_url }}">
-                        {{post.title}}
+                        {% blocktrans with post_title=post.title %}
+                        {{post_title}}
+                        {% endblocktrans %}
                     </a>
                 </li>
             </ul>
