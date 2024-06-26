@@ -2,11 +2,11 @@
 A simple django blog site with multilingual features and a chatbot using LLM for processing suitable response to users.
 
 ## Features 
-> Multilanguage support; supported currently (french and english)
-> Chat-gpt integration, for chat-bot functionality support
-> Pagination support for viewing list of posts currently available
-> CRUD functionality support for posts
-> Search functionality for posts using its attributes
+>   Multilanguage support; supported currently (french and english)
+>   Chat-gpt integration, for chat-bot functionality support
+>   Pagination support for viewing list of posts currently available
+>   CRUD functionality support for posts
+>   Search functionality for posts using its attributes
 
 ## Sample Screenshots from App
 Homepage (en)
