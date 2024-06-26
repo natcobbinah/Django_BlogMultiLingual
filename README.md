@@ -34,3 +34,8 @@ Search by post title
 
 Search by content
 ![search for post by content](https://github.com/natcobbinah/Django_BlogMultiLingual/assets/10479361/76434ddb-83f0-4a0c-8d51-850d3d842d1a)
+
+Chatbot usage
+![gpt-integration](https://github.com/natcobbinah/Django_BlogMultiLingual/assets/10479361/731f51c1-50e3-48ea-89c6-fe813d39ab8a)
+
+![gpt-chatbot](https://github.com/natcobbinah/Django_BlogMultiLingual/assets/10479361/bc343be6-0bef-4c54-91da-b7d1fbfd9c39)
