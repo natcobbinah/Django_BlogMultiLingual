@@ -47,9 +47,13 @@ base root of the cloned project directory, and add the following variables:
    ADMIN_NAME = Nathaniel_Cobbinah
    ADMIN_EMAIL = fmg3ckali@gmail.com
 
-4. python manage.py runserver
+4. python manage.py migrate
 
-5. Navigate and test app features
+5. python manage.py createsuperuser
+
+6. python manage.py runserver
+
+7. Navigate and test app features
 ```
 
 ## Sample Screenshots from App
