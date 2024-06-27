@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import secrets
 from environs import Env
 from django.utils.translation import gettext_lazy as _
 
@@ -36,7 +37,10 @@ if not IS_HEROKU_APP:
     DEBUG = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env.str("SECRET_KEY")
+SECRET_KEY = os.environ.get(
+    "DJANGO_SECRET_KEY",
+    default=secrets.token_urlsafe(nbytes=64),
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # On Heroku, it's safe to use a wildcard for `ALLOWED_HOSTS``, since the Heroku router performs
