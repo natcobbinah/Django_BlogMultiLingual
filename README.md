@@ -22,8 +22,7 @@ A simple django blog site with multilingual features and a chatbot using LLM for
 > https://multisite-django-app-d49cbac60017.herokuapp.com/en/
 
 > https://multisite-django-app-d49cbac60017.herokuapp.com/en/admin
-  username: diot
-  password: diotsiaci
+  username: diot / password: diotsiaci
 
 > https://multisite-django-app-d49cbac60017.herokuapp.com/en/rosetta
   UI interface to help editing of localization strings for internationalization 
