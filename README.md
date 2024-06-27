@@ -41,7 +41,12 @@ A simple django blog site with multilingual features and a chatbot using LLM for
 added to (.gitignore), you'll need to *manually* create a (.env) file in the 
 base root of the cloned project directory, and add the following variables:
 
-   SECRET_KEY= <contact via email to at natcobbinah1778@gmail.com to send generated secret key for the project>
+   SECRET_KEY= <generate secret key using python shell>
+   > python manage.py shell
+   > import secrets
+   > print(secrets.token_urlsafe())
+   > copy secrets and substitute in place of <generate secret key using python shell>
+
    DATABASE_URL = sqlite:///db.sqlite3
    OPENAI_SECRET_KEY = <contact me via email at natcobbinah1778@gmail.com to send apikey to test chatbot using chatgpt>
    ADMIN_NAME = Nathaniel_Cobbinah
