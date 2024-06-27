@@ -4,19 +4,44 @@ A simple django blog site with multilingual features and a chatbot using LLM for
 ## Features 
 ```
 >   Multilanguage support; supported currently (french and english)
->   Chat-gpt integration, for chat-bot functionality support
+
+>   Chat-gpt integration, for chat-bot functionality support using 
+    Websocket consumers and appropriate routing, with an implemented
+    Websocket client
+
 >   Pagination support for viewing list of posts currently available
+
 >   CRUD functionality support for posts
+
 >   Search functionality for posts using its attributes
+
+*   Uses channels to serve project through Asynchronous Server Gateway Interface (ASGI)
+*   
 ```
 
 ## Running app locally
 ```
 1. Clone app from github
+
 2. cd to app directory and activate the python  virtual environment (.venv)
    .venv/Scripts/activate (on windows)
+
 3. pip install -r requirements.txt
-4. python manage.py runserver
+
+[NOTE]: Since (.env) file containing api-keys and other projects settings is 
+added to (.gitignore), you'll need to *manually* create a (.env) file in the 
+base root of the cloned project directory, and add the following variables:
+
+   SECRET_KEY= <contact via email to at natcobbinah1778@gmail.com to send generated secret key for the project>
+   DATABASE_URL = sqlite:///db.sqlite3
+   OPENAI_SECRET_KEY = <contact me via email at natcobbinah1778@gmail.com to send apikey to test chatbot using chatgpt>
+   ADMIN_NAME = Nathaniel_Cobbinah
+   ADMIN_EMAIL = fmg3ckali@gmail.com
+
+4. python manage.py runserver --settings=multilang_site.settings.local
+   (this is because, configuration settings has been setup to serve django
+   app locally and on the web)
+
 5. Navigate and test app features
 ```
 
