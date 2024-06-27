@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 import secrets
+import dj_database_url
 from environs import Env
 from django.utils.translation import gettext_lazy as _
 
@@ -128,8 +129,17 @@ if IS_HEROKU_APP:
     # https://devcenter.heroku.com/articles/provisioning-heroku-postgres#application-config-vars
     # https://github.com/jazzband/dj-database-url
     DATABASES = {
-        "default": env.dj_db_url("DATABASE_URL")
+        "default": dj_database_url.config(
+            env=os.environ.get("DATABASE_URL"),
+            conn_max_age=600,
+            conn_health_checks=True,
+            ssl_require=True,
+        ),
     }
+
+    """ DATABASES = {
+        "default": env.dj_db_url("DATABASE_URL")
+    } """
 else:
     # When running locally in development or in CI, a sqlite database file will be used instead
     # to simplify initial setup. Longer term it's recommended to use Postgres locally too.
