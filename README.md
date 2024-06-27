@@ -16,7 +16,6 @@ A simple django blog site with multilingual features and a chatbot using LLM for
 >   Search functionality for posts using its attributes
 
 *   Uses channels to serve project through Asynchronous Server Gateway Interface (ASGI)
-*   
 ```
 
 ## Running app locally
@@ -76,3 +75,6 @@ Chatbot usage
 ![gpt-integration](https://github.com/natcobbinah/Django_BlogMultiLingual/assets/10479361/731f51c1-50e3-48ea-89c6-fe813d39ab8a)
 
 ![gpt-chatbot](https://github.com/natcobbinah/Django_BlogMultiLingual/assets/10479361/bc343be6-0bef-4c54-91da-b7d1fbfd9c39)
+
+![chatbot players of all time](https://github.com/natcobbinah/Django_BlogMultiLingual/assets/10479361/2953f0c5-9e41-4974-9cc5-f690447af2b2)
+
