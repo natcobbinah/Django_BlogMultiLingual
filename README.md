@@ -37,9 +37,7 @@ base root of the cloned project directory, and add the following variables:
    ADMIN_NAME = Nathaniel_Cobbinah
    ADMIN_EMAIL = fmg3ckali@gmail.com
 
-4. python manage.py runserver --settings=multilang_site.settings.local
-   (this is because, configuration settings has been setup to serve django
-   app locally and on the web)
+4. python manage.py runserver
 
 5. Navigate and test app features
 ```
