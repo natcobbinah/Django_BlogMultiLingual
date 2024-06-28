@@ -67,7 +67,7 @@ can be retrieved using (request.user)
 7. Navigate and test app features
 ```
 
-## Sample Screenshots from App
+## Sample Screenshots from App Locally Served
 Homepage (en)
 ![blog site homepage 1](https://github.com/natcobbinah/Django_BlogMultiLingual/assets/10479361/067530e2-506d-413f-b77d-8fddda4e6dd5)
 
@@ -100,4 +100,12 @@ Chatbot usage
 ![gpt-chatbot](https://github.com/natcobbinah/Django_BlogMultiLingual/assets/10479361/bc343be6-0bef-4c54-91da-b7d1fbfd9c39)
 
 ![chatbot players of all time](https://github.com/natcobbinah/Django_BlogMultiLingual/assets/10479361/2953f0c5-9e41-4974-9cc5-f690447af2b2)
+
+## Sample Screenshots from App Accessed Remoted hosted on Heroku
+![on heroku - post created](https://github.com/natcobbinah/Django_BlogMultiLingual/assets/10479361/0762e5c4-7964-4846-85f8-778ed8c91949)
+
+![on heroku - post updated](https://github.com/natcobbinah/Django_BlogMultiLingual/assets/10479361/3a9aa6a0-e1f4-4bff-a767-6bad8bd5c4d1)
+
+![on heroku chatbot working successfully](https://github.com/natcobbinah/Django_BlogMultiLingual/assets/10479361/9c085d7c-a9b9-4a70-a1a4-3605d1f7762f)
+
 
