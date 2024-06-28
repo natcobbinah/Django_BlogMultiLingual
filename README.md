@@ -33,7 +33,8 @@ A simple django blog site with multilingual features and a chatbot using LLM for
 1. Clone app from github
 
 2. cd to app directory and activate the python  virtual environment (.venv)
-   .venv/Scripts/activate (on windows)
+   > python -m venv .venv
+   > .venv/Scripts/activate (on windows)
 
 3. pip install -r requirements.txt
 
@@ -47,7 +48,7 @@ base root of the cloned project directory, and add the following variables:
    > print(secrets.token_urlsafe())
    > copy secrets and substitute in place of <generate secret key using python shell>
 
-   DATABASE_URL = sqlite:///db.sqlite3
+   DATABASE_URL_LOCAL = sqlite:///db.sqlite3
    OPENAI_SECRET_KEY = <contact me via email at natcobbinah1778@gmail.com to send apikey to test chatbot using chatgpt>
    ADMIN_NAME = Nathaniel_Cobbinah
    ADMIN_EMAIL = fmg3ckali@gmail.com
@@ -57,6 +58,10 @@ base root of the cloned project directory, and add the following variables:
 5. python manage.py createsuperuser
 
 6. python manage.py runserver
+
+7. append /admin at the end of the browser URL, to login to the admin dashboard,
+that is because the (post model) uses a user object property, which after logging in
+can be retrieved using (request.user)
 
 7. Navigate and test app features
 ```
