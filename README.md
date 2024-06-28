@@ -22,8 +22,11 @@ A simple django blog site with multilingual features and a chatbot using LLM for
 > https://multisite-django-app-d49cbac60017.herokuapp.com/en/
 
 > https://multisite-django-app-d49cbac60017.herokuapp.com/en/admin
-> login to admin dashboard, so user instance becomes available for creating and editing posts
-> username: diot / password: diotsiaci
+> login to admin dashboard, so user instance becomes available for creating and editing posts,
+  else only (viewing of posts, chatbot and search functionalities) operations can be performed
+
+> username: <contact me via email at natcobbinah1778@gmail.com for admin dashboard username>
+> password: <contact me via email at natcobbinah1778@gmail.com for admin dashboard password>
 
 > https://multisite-django-app-d49cbac60017.herokuapp.com/en/rosetta
   UI interface to help editing of localization strings for internationalization 
