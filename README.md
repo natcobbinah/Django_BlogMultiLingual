@@ -18,7 +18,7 @@ A simple django blog site with multilingual features and a chatbot using LLM for
 *   Uses channels to serve project through Asynchronous Server Gateway Interface (ASGI)
 ```
 
-## Hosted app on heroku
+## Hosted app on heroku (have deleted postgresDB INSTANCE bcos of recurring cost, so run the app locally and test out features
 > https://multisite-django-app-d49cbac60017.herokuapp.com/en/
 
 > https://multisite-django-app-d49cbac60017.herokuapp.com/en/admin
